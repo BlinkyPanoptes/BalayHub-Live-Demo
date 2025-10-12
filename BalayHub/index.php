@@ -27,7 +27,7 @@
 
             <!-- Heading Section -->
             <div class="heading-section">
-                <h1 class="heading">Welcome back</h1>
+                <h1 class="heading">Welcome</h1>
                 <p class="subtext">Log in to your account</p>
             </div>
 
@@ -107,3 +107,4 @@
 </html>
 
 <!-- NOBLE 10-11-2025 -->
+
