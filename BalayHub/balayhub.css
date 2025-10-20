@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Dorm Info Section */
+.dorm-info {
+    display: flex;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.dorm-info {box-shadow: 0 0 20px 0 rgba(0,0,0,0.6);}
+
+.dorm-info img {
+    width: 100px;
+    height: auto;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+.amenities-page .dorm-details h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.amenities-page .dorm-details p {
+    font-size: 13px;
+    color: #000000;
+    margin: 2px 0;
+}
+
+/* Rating Row */
+.amenities-page .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.amenities-page .rating {
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+}
+
+.amenities-page .contact-btn {
+    font-size: 10px;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    background-color: #ffb800;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: box-shadow 0.3s ease;
+}
+
+.amenities-page .contact-btn:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Amenities List */
+.amenities-page .amenities-list {
+    background: white;
+    margin-top: 0.75rem;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.amenities-page .amenities-list .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #000000;
+}
+
+.amenities-page .item:last-child {
+    border-bottom: none;
+}
+
+/* Icon Styles */
+.amenities-page .icon {
+    font-size: 20px;
+    color: #FFB800;
+    flex-shrink: 0;
+}
+
+.amenities-page .checkmark {
+    color: #FFB800;
+    font-size: 18px;
+}
+
+.amenities-page .item-details {
+    flex: 1;
+    margin-left: 0.75rem;
+}
+
+.amenities-page .item-details h2 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.amenities-page .item-details p {
+    font-size: 10px;
+    color: #000000;
+    margin: 0;
+}
+
+/* Mobile Adjustments Down Below for Amenities*/
+@media (max-width: 767px) {
+    .dorm-details h2 {
+        font-size: 16px;
+    }
+
+    .dorm-details p {
+        font-size: 10.5px;
+    }
+
+    .rating {
+        font-size: 10px;
+    }
+
+    .contact-btn {
+        font-size: 9px;
+        width: 90px;
+        height: 28px;
+    }
+
+    .dorm-info img {
+        width: 80px;
+    }
+
+    .icon, .checkmark {
+        font-size: 18px;
+    }
+
+    .item-details h2 {
+        font-size: 12px;
+    }
+
+    .item-details p {
+        font-size: 10px;
+    }
+
+    .dorm-info, .amenities-list .item {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+}
+
+/* Nearby Card */
+.areainfo-page .nearby-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.areainfo-page .nearby-card p {
+    font-size: 13px;
+    color: #000;
+}
+
+.areainfo-page .view-more-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #ffb800;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+    transition: box-shadow 0.3s ease;
+}
+
+.areainfo-page .view-more-btn:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Map Section */
+.areainfo-page .map-container {
+    margin-top: 1rem;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.areainfo-page .map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.areainfo-page .map-legend {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 11px;
+    padding: 0.5rem 0;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+.areainfo-page .map-legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Custom icon colors */
+.areainfo-page .text-pink { color: #ff4da6; }
+.areainfo-page .text-purple { color: #8b5cf6; }
+
+/* Mobile Adjustments Down Below for Area Info */
+@media (max-width: 767px) {
+    .areainfo-page .nearby-card p { font-size: 11px; }
+    .areainfo-page .view-more-btn { font-size: 10px; padding: 4px 10px; }
+    .areainfo-page .map-legend { font-size: 9.5px; }
+}
