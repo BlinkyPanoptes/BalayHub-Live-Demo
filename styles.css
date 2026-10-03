@@ -127,6 +127,11 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+a.contact-btn,
+a.back-btn {
+    text-decoration: none;
+}
+
 .view-more-btn {
     background-color: #FFB800;
     border: none;
@@ -263,6 +268,70 @@ body {
 
 .disclaimer-link:hover {
     color: #000000;
+}
+
+.demo-alert {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 16px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #000000;
+    background-color: #FFF8D6;
+    border: 1px solid #FFCC00;
+    border-radius: 8px;
+}
+
+.demo-alert code {
+    font-weight: 600;
+}
+
+.login-error {
+    font-size: 13px;
+    color: #dc2626;
+    text-align: center;
+}
+
+.demo-note {
+    font-size: 12px;
+    color: #999999;
+    margin-top: 8px;
+}
+
+.listing-actions .demo-note {
+    width: 100%;
+    margin-top: 0;
+}
+
+/* ===== DETAIL TABS ===== */
+.detail-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.detail-tab {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.detail-tab:hover {
+    background-color: #FFD000;
+}
+
+.detail-tab.active {
+    background-color: #FFB800;
 }
 
 /* ===== FILTER BAR ===== */
@@ -695,6 +764,13 @@ body {
     display: block;
 }
 
+.map-frame {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    display: block;
+}
+
 .map-legend {
     display: flex;
     justify-content: space-around;
@@ -847,6 +923,290 @@ body {
 /* Large Screens */
 @media (min-width: 1920px) {
     .page-container {
+        max-width: 1200px;
+    }
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.top-bar-inner {
+    max-width: 56rem;
+    height: 56px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.top-bar .back-btn {
+    position: static;
+    flex-shrink: 0;
+}
+
+.top-logo {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000;
+    text-decoration: none;
+}
+
+.top-logo svg {
+    width: 22px;
+    height: 22px;
+}
+
+.top-title {
+    margin-left: auto;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    text-align: right;
+}
+
+.page-container {
+    max-width: 56rem;
+}
+
+.filter-bar {
+    top: 56px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+/* ===== PROPERTY HERO (Detail Pages) ===== */
+.property-hero {
+    position: relative;
+    height: 280px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.property-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.property-hero-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 56px 20px 18px;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+
+.hero-name {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.hero-address {
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.hero-rating {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.hero-rating .star {
+    color: #FFD000;
+    font-size: 16px;
+}
+
+/* ===== LISTING CARDS ===== */
+.listing-intro {
+    text-align: center;
+    margin: 0.5rem 0 1.25rem;
+}
+
+.listing-intro h2 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.listing-intro p {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 4px;
+}
+
+.search-container {
+    margin-bottom: 0.75rem;
+}
+
+.result-count {
+    text-align: center;
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 1.25rem;
+}
+
+#listings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.listing {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listing:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.listing-image {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 0;
+}
+
+.listing-info {
+    padding: 16px;
+    gap: 6px;
+}
+
+.listing-info .property-name {
+    font-size: 18px;
+}
+
+.listing-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+}
+
+/* ===== LOGIN SPLIT LAYOUT ===== */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    background-color: #ffffff;
+}
+
+.login-brand {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    padding: 56px;
+    background-color: #FFCC00;
+}
+
+.login-brand img {
+    width: 100%;
+    max-height: 52vh;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.login-tagline {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #000000;
+}
+
+.login-tagline-sub {
+    font-size: 16px;
+    color: #333333;
+    margin-top: 8px;
+}
+
+.login-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.login-box {
+    max-width: 440px;
+    width: 100%;
+    padding: 48px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .login-brand {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    #listings {
+        grid-template-columns: 1fr;
+    }
+
+    .property-hero {
+        height: 220px;
+    }
+
+    .hero-name {
+        font-size: 22px;
+    }
+
+    .listing-intro h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar-inner {
+        gap: 10px;
+    }
+
+    .top-logo {
+        font-size: 18px;
+    }
+
+    .top-logo svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .top-title {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .top-bar-inner {
         max-width: 1200px;
     }
 }

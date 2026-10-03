@@ -10,8 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; background-color: #ffffff;">
-    <div style="max-width: 500px; width: 100%; padding: 48px 0; display: flex; flex-direction: column; align-items: center;">
+<body class="login-page">
+    <aside class="login-brand">
+        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1000&h=700&fit=crop" alt="Dormitory room">
+        <div>
+            <p class="login-tagline">Find your perfect home.</p>
+            <p class="login-tagline-sub">Browse dormitories and rentals in Bacolod City.</p>
+        </div>
+    </aside>
+
+    <main class="login-panel">
+    <div class="login-box">
         
         <div class="brand-logo">
             <span class="brand-text">Balay</span>
@@ -25,6 +34,12 @@
         <div class="heading-section">
             <h1 class="heading">Welcome</h1>
             <p class="subtext">Log in to your account</p>
+        </div>
+
+        <div class="demo-alert" role="note">
+            <strong>Live demo</strong>
+            <span>Username: <code>demo</code></span>
+            <span>Password: <code>balayhub</code></span>
         </div>
 
         <form id="loginForm" class="login-form">
@@ -61,6 +76,7 @@
             >
                 Login
             </button>
+            <p class="login-error" id="loginError" role="alert" hidden>Incorrect username or password. Use the demo login shown above.</p>
         </form>
 
         <div class="signup-option">
@@ -68,6 +84,7 @@
                 Don't have an account? 
                 <a href="#" class="signup-link" id="signupLink" data-testid="link-signup">Sign up</a>
             </p>
+            <p class="demo-note" id="demoNote" hidden>Sign up is not part of this demo. Use the demo login shown above.</p>
         </div>
 
         <div class="disclaimer">
@@ -79,20 +96,24 @@
             </p>
         </div>
     </div>
+    </main>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            console.log('Login attempt - Username:', username);
-            alert('Login attempt with username: ' + username);
+            // Demo only: there is no backend, so the login is checked in the page.
+            if (username.trim().toLowerCase() === 'demo' && password === 'balayhub') {
+                window.location.href = 'listing.html';
+            } else {
+                document.getElementById('loginError').hidden = false;
+            }
         });
 
         document.getElementById('signupLink').addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Navigate to signup');
-            alert('Redirect to signup page');
+            document.getElementById('demoNote').hidden = false;
         });
     </script>
 </body>

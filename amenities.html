@@ -13,29 +13,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <a href="listing.html" class="back-btn">← Back</a>
+            <a href="listing.html" class="top-logo">
+                <span>Balay</span>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" fill="#FFCC00" stroke="#FFCC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="10" r="3" fill="black"/>
+                </svg>
+                <span>Hub</span>
+            </a>
+            <h1 class="top-title">Amenities &amp; Fees</h1>
+        </div>
+    </header>
+
     <div class="page-container">
         
-        <header class="page-header">
-            <button onclick="history.back()" class="back-btn">← Back</button>
-            <h1 class="header-title">Amenities & Fees</h1>
-        </header>
+        <div class="property-hero">
+            <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1200&h=520&fit=crop" alt="Antares Dormitory">
+            <div class="property-hero-info">
+                <h2 class="hero-name">Antares Dormitory</h2>
+                <p class="hero-address">2380 C.L. Montelibano Avenue, Bacolod City, Philippines</p>
+                <p class="hero-rating"><span class="star">★</span> 4.5 (20 Reviews)</p>
+            </div>
+        </div>
+
+        <nav class="detail-tabs">
+            <a href="amenities.html" class="detail-tab active">Amenities</a>
+            <a href="areainfo.html" class="detail-tab">Area Info</a>
+            <a href="review.html" class="detail-tab">Reviews</a>
+        </nav>
 
         <div class="content">
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=200&h=150&fit=crop" 
-                     alt="Antares Dormitory" 
-                     class="property-image">
-                <div class="property-info">
-                    <h2 class="property-name">Antares Dormitory</h2>
-                    <p class="property-address">2380 C.L. Montelibano Avenue</p>
-                    <p class="property-location">Bacolod City, Philippines</p>
-                    <div class="property-rating">
-                        <span class="star">★</span>
-                        <span class="rating-text">4.5 (20 Reviews)</span>
-                    </div>
-                </div>
-            </div>
-
             <div class="amenities-list">
                 <div class="amenities-item">
                     <i class="fa fa-shower amenities-icon" aria-hidden="true"></i>

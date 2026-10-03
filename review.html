@@ -11,12 +11,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <a href="listing.html" class="back-btn">← Back</a>
+            <a href="listing.html" class="top-logo">
+                <span>Balay</span>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" fill="#FFCC00" stroke="#FFCC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="10" r="3" fill="black"/>
+                </svg>
+                <span>Hub</span>
+            </a>
+            <h1 class="top-title">Reviews</h1>
+        </div>
+    </header>
+
     <div class="page-container">
         
-        <header class="page-header">
-            <button onclick="history.back()" class="back-btn">← Back</button>
-            <h1 class="header-title">Reviews</h1>
-        </header>
+        <div class="property-hero">
+            <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1200&h=520&fit=crop" alt="Antares Dormitory">
+            <div class="property-hero-info">
+                <h2 class="hero-name">Antares Dormitory</h2>
+                <p class="hero-address">2380 C.L. Montelibano Avenue, Bacolod City, Philippines</p>
+                <p class="hero-rating"><span class="star">★</span> 4.5 (20 Reviews)</p>
+            </div>
+        </div>
+
+        <nav class="detail-tabs">
+            <a href="amenities.html" class="detail-tab">Amenities</a>
+            <a href="areainfo.html" class="detail-tab">Area Info</a>
+            <a href="review.html" class="detail-tab active">Reviews</a>
+        </nav>
 
         <div class="filter-bar">
             <button class="filter-button" data-testid="button-sort">Sort</button>
@@ -24,21 +49,6 @@
         </div>
 
         <div class="content">
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=200&h=150&fit=crop" 
-                     alt="Antares Dormitory" 
-                     class="property-image">
-                <div class="property-info">
-                    <h2 class="property-name">Antares Dormitory</h2>
-                    <p class="property-address">2380 Ct. Montelbano Avenue</p>
-                    <p class="property-location">Bacolod City, Philippines</p>
-                    <div class="property-rating">
-                        <span class="star">★</span>
-                        <span class="rating-text">4.5 (20 Reviews)</span>
-                    </div>
-                </div>
-            </div>
-
             <div class="ratings-section">
                 <h3 class="section-title">Ratings</h3>
                 
@@ -218,14 +228,50 @@
     </div>
 
     <script>
+        const content = document.querySelector('.content');
+        const spacer = content.lastElementChild;
+        const reviews = Array.from(document.querySelectorAll('.review-card')).map((card, index) => ({
+            card,
+            index,
+            date: new Date(card.querySelector('.review-date').textContent),
+            stars: card.querySelectorAll('.review-stars .star.filled').length
+                + card.querySelectorAll('.review-stars .star.half').length * 0.5
+        }));
+
+        const sortModes = [
+            { label: 'Sort', compare: (a, b) => a.index - b.index },
+            { label: 'Sort: Most Recent', compare: (a, b) => b.date - a.date },
+            { label: 'Sort: Highest Rated', compare: (a, b) => b.stars - a.stars },
+            { label: 'Sort: Lowest Rated', compare: (a, b) => a.stars - b.stars }
+        ];
+        const filterModes = [
+            { label: 'Filter', stars: null },
+            { label: 'Filter: 5 Stars', stars: 5 },
+            { label: 'Filter: 4 Stars', stars: 4 },
+            { label: 'Filter: 3 Stars', stars: 3 }
+        ];
+        let sortMode = 0;
+        let filterMode = 0;
+
+        function renderReviews() {
+            const wanted = filterModes[filterMode].stars;
+            reviews.slice().sort(sortModes[sortMode].compare).forEach(review => {
+                review.card.style.display = (wanted === null || Math.floor(review.stars) === wanted) ? 'flex' : 'none';
+                content.insertBefore(review.card, spacer);
+            });
+        }
+
+        // Each click steps to the next option.
         document.querySelector('[data-testid="button-sort"]').addEventListener('click', function() {
-            console.log('Show sort options');
-            alert('Sort options: Most Recent, Highest Rated, Lowest Rated');
+            sortMode = (sortMode + 1) % sortModes.length;
+            this.textContent = sortModes[sortMode].label;
+            renderReviews();
         });
 
         document.querySelector('[data-testid="button-filter"]').addEventListener('click', function() {
-            console.log('Show filter options');
-            alert('Filter options: 5 Stars, 4 Stars, 3 Stars, etc.');
+            filterMode = (filterMode + 1) % filterModes.length;
+            this.textContent = filterModes[filterMode].label;
+            renderReviews();
         });
     </script>
 </body>
