@@ -17,4 +17,4 @@ Open `index.html` in a browser.
 1. Push this repository to GitHub.
 2. In the repository, go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **Deploy from a branch**, pick `main` and `/ (root)`, then save.
-4. After a minute the site is live at `https://<your-username>.github.io/<repository-name>/`.
+4. After a minute the site is live at https://blinkypanoptes.github.io/BalayHub-Live-Demo/.
